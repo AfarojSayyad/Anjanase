@@ -43,7 +43,7 @@
 
 .header {
   @apply transition-colors ease-in-out duration-500
-  absolute bottom-0  z-20  pt-36 pr-16;
+  absolute top-0 left-0 z-20 pr-16;
 }
 
 .header .name {
@@ -54,15 +54,11 @@
 }
 
 .header .name span {
-  @apply py-3 px-3  bg-primary text-primary font-bold
+  @apply py-4 px-6 bg-primary text-primary font-bold
   transition-colors ease-in-out duration-500;
-  /* font-size: inherit;
+  font-size: inherit;
   letter-spacing: inherit;
   box-decoration-break: clone;
-  -webkit-box-decoration-break: clone; */
-  /* @apply py-5; */
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
   -webkit-box-decoration-break: clone;
 }
 

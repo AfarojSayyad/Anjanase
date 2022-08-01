@@ -2,7 +2,8 @@ import { FC } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
 import type { Product } from '@commerce/types/product'
-import s from './ProductCard.module.css'
+// import s from './ProductCard.module.css'
+import s from './banner.module.css'
 import Image, { ImageProps } from 'next/image'
 import WishlistButton from '@components/wishlist/WishlistButton'
 import usePrice from '@framework/product/use-price'
@@ -38,16 +39,17 @@ const ProductCard: FC<Props> = ({
   )
 
   return (
-    <Link href={`/product/${product.slug}`}>
+    <div>
+      {/* // <Link href={`/product/${product.slug}`}> */}
       <a className={rootClassName} aria-label={product.name}>
-        {variant === 'slim' && (
+        {/* {variant === 'slim' && (
           <>
             <div className={s.header}>
               <span>{product.name}</span>
             </div>
             {product?.images && (
               <div>
-                {/* marquee */}
+                
                 <Image
                   quality="85"
                   src={product.images[0]?.url || placeholderImg}
@@ -60,9 +62,9 @@ const ProductCard: FC<Props> = ({
               </div>
             )}
           </>
-        )}
+        )} */}
 
-        {variant === 'simple' && (
+        {/* {variant === 'simple' && (
           <>
             {process.env.COMMERCE_WISHLIST_ENABLED && (
               <WishlistButton
@@ -98,9 +100,9 @@ const ProductCard: FC<Props> = ({
               )}
             </div>
           </>
-        )}
+        )} */}
 
-        {variant === 'default' && (
+        {/* {variant === 'default' && (
           <>
             {process.env.COMMERCE_WISHLIST_ENABLED && (
               <WishlistButton
@@ -115,6 +117,52 @@ const ProductCard: FC<Props> = ({
             />
             <div className={s.imageContainer}>
               {product?.images && (
+                <div> */}
+        {/* categories */}
+        {/* <Image
+                    alt={product.name || 'Product Image'}
+                    className={s.productImage}
+                    src={product.images[0]?.url || placeholderImg}
+                    height={400}
+                    width={400}
+                    quality="85"
+                    layout="responsive"
+                    {...imgProps}
+                  />
+                  <div className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5">
+                    <p className="font-size-display5 font-family-secondary mb-4 text-center hero-header">
+                      The care you&apos;ve always needed
+                    </p>
+                    <p className="text-transform-uppercase font-size-title mb-5 hero-subheader">
+                      A range of products for you
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div> */}
+        {/* <ProductTag
+              name={product.name}
+              price={`${price} ${product.price?.currencyCode}`}
+            /> */}
+        {/* </>
+        )} */}
+
+        {/*  */}
+        {variant === 'default' && (
+          <>
+            {process.env.COMMERCE_WISHLIST_ENABLED && (
+              <WishlistButton
+                className={s.wishlistButton}
+                productId={product.id}
+                variant={product.variants[0] as any}
+              />
+            )}
+            {/* <ProductTag
+              name={product.name}
+              price={`${price} ${product.price?.currencyCode}`}
+            /> */}
+            <div className={s.imageContainer}>
+              {product?.images && (
                 <div>
                   {/* categories */}
                   <Image
@@ -127,6 +175,15 @@ const ProductCard: FC<Props> = ({
                     layout="responsive"
                     {...imgProps}
                   />
+                  <div className={s.imageContainer}>
+                    <p className={s.header}>
+                      The care you&apos;ve always needed
+                    </p>
+                    <p className={s.header2}>PRESENTING</p>
+                  </div>
+                  <button className={s.wishlistButton}>
+                    <Link href={`/product/${product.slug}`}>Shop Now</Link>
+                  </button>
                 </div>
               )}
             </div>
@@ -137,7 +194,8 @@ const ProductCard: FC<Props> = ({
           </>
         )}
       </a>
-    </Link>
+      {/* </Link> */}
+    </div>
   )
 }
 

@@ -9,6 +9,11 @@ const isSwell = provider === '@vercel/commerce-swell'
 const isVendure = provider === '@vercel/commerce-vendure'
 
 module.exports = withCommerceConfig({
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   commerce,
   i18n: {
     locales: ['en-US', 'es'],

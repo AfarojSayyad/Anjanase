@@ -2,11 +2,12 @@ import { FC } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
 import type { Product } from '@commerce/types/product'
-import s from './ProductCard.module.css'
+// import s from './ProductCard.module.css'
+import s from './ProductCategory.module.css'
 import Image, { ImageProps } from 'next/image'
 import WishlistButton from '@components/wishlist/WishlistButton'
 import usePrice from '@framework/product/use-price'
-import ProductTag from '../ProductTag'
+// import ProductTag from '../ProductTag'
 
 interface Props {
   className?: string
@@ -42,9 +43,9 @@ const ProductCard: FC<Props> = ({
       <a className={rootClassName} aria-label={product.name}>
         {variant === 'slim' && (
           <>
-            <div className={s.header}>
+            {/* <div className={s.header}>
               <span>{product.name}</span>
-            </div>
+            </div> */}
             {product?.images && (
               <div>
                 {/* marquee */}
@@ -109,10 +110,10 @@ const ProductCard: FC<Props> = ({
                 variant={product.variants[0] as any}
               />
             )}
-            <ProductTag
+            {/* <ProductTag
               name={product.name}
               price={`${price} ${product.price?.currencyCode}`}
-            />
+            /> */}
             <div className={s.imageContainer}>
               {product?.images && (
                 <div>
@@ -121,7 +122,7 @@ const ProductCard: FC<Props> = ({
                     alt={product.name || 'Product Image'}
                     className={s.productImage}
                     src={product.images[0]?.url || placeholderImg}
-                    height={60}
+                    height={40}
                     width={40}
                     quality="85"
                     layout="responsive"
