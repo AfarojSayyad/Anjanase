@@ -2,10 +2,12 @@ export type Maybe<T> = T | null
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K]
 }
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> }
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> }
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>
+}
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>
+}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string
@@ -3933,7 +3935,7 @@ export type Product = Node &
      * A comma separated list of tags that have been added to the product.
      * Additional access scope required for private apps: unauthenticated_read_product_tags.
      */
-    tags: Array<Scalars['String']>
+    tags: Array<Scalars['String']> | undefined
     /** The product’s title. */
     title: Scalars['String']
     /** The total quantity of inventory in stock for this Product. */

@@ -4,6 +4,7 @@ import s from './Navbar.module.css'
 import NavbarRoot from './NavbarRoot'
 import { Logo, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
+import Image from 'next/image'
 
 interface Link {
   href: string
@@ -16,13 +17,30 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ links }) => (
   <NavbarRoot>
-    <Container clean className="mx-auto max-w-8xl px-6">
+    {/* <div className="justify-center items-center pl-24 pt-3">
+      <Link href="/">
+        <Image
+          src="https://cdn.shopify.com/s/files/1/0636/4427/0827/files/Anjanase-logo_2a5c0236-d0e8-4ee1-be32-c7a82818c675_160x.png?v=1657713372"
+          alt="Picture of the author"
+          width={100}
+          height={60}
+        />
+      </Link>
+    </div> */}
+    <Container clean className="mx-auto max-w-8xl px-20">
       <div className={s.nav}>
         <div className="flex items-center flex-1">
           <Link href="/">
-            <a className={s.logo} aria-label="Logo">
-              <Logo />
-            </a>
+            {/* <a className={s.logo} aria-label="Logo"> */}
+            {/* <Logo /> */}
+
+            <Image
+              src="https://cdn.shopify.com/s/files/1/0636/4427/0827/files/Anjanase-logo_2a5c0236-d0e8-4ee1-be32-c7a82818c675_160x.png?v=1657713372"
+              alt="Picture of the author"
+              width={100}
+              height={60}
+            />
+            {/* </a> */}
           </Link>
           <nav className={s.navMenu}>
             <Link href="/search">

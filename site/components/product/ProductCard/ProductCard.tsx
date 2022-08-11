@@ -74,6 +74,9 @@ const ProductCard: FC<Props> = ({
             {!noNameTag && (
               <div className={s.header}>
                 <h3 className={s.name}>
+                  <span>{product.vendor}</span>
+                </h3>
+                <h3 className={s.name}>
                   <span>{product.name}</span>
                 </h3>
                 <div className={s.price}>
@@ -84,6 +87,7 @@ const ProductCard: FC<Props> = ({
             <div className={s.imageContainer}>
               {product?.images && (
                 <div>
+                  {/* all collection images */}
                   <Image
                     alt={product.name || 'Product Image'}
                     className={s.productImage}

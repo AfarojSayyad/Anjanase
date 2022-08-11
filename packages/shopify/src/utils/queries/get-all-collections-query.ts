@@ -6,6 +6,10 @@ const getSiteCollectionsQuery = /* GraphQL */ `
           id
           title
           handle
+          image {
+            id
+            originalSrc
+          }
         }
       }
     }

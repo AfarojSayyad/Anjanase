@@ -1,8 +1,11 @@
+import { Image } from './common'
+
 export type Category = {
   id: string
   name: string
   slug: string
   path: string
+  image: Image
 }
 
 export type Brand = any

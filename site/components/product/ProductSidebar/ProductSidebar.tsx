@@ -9,6 +9,9 @@ import {
   selectDefaultOptionFromProduct,
   SelectedOptions,
 } from '../helpers'
+// import ProductTag from '../ProductTag'
+import usePrice from '@framework/product/use-price'
+import ProductDetailTag from '../ProductDetailTag '
 
 interface ProductSidebarProps {
   product: Product
@@ -40,9 +43,21 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
       setLoading(false)
     }
   }
+  const { price } = usePrice({
+    amount: product.price.value,
+    baseAmount: product.price.retailPrice,
+    currencyCode: product.price.currencyCode!,
+  })
+  console.log('tags:', product.tags)
+  console.log('vendor:', product.vendor)
+  // console.log('title', product.title)
+
+  // console.log('seo:', product.seo)
 
   return (
     <div className={className}>
+      <div className="mr-9">{product.vendor}</div>
+
       <ProductOptions
         options={product.options}
         selectedOptions={selectedOptions}
@@ -73,7 +88,16 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         )}
       </div>
       <div className="mt-6">
+        <div className="px-60 tracking-widest text-right auto-cols-max">
+          <h3>Details</h3>
+          {product.tags}
+
+          {/* <h6 className="whitespace-pre-wrap">
+            {product.tags.slice(0, 3)} <br />
+          </h6> */}
+        </div>
         <Collapse title="Care">
+          {product.vendor}
           This is a limited edition production run. Printing starts when the
           drop ends.
         </Collapse>
@@ -82,6 +106,16 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
           drop ends. Reminder: Bad Boys For Life. Shipping may take 10+ days due
           to COVID-19.
         </Collapse>
+      </div>
+      <div className="p-20">
+        {/* <div className="mr-9">{product.productType}</div> */}
+        {/* {product.description} */}
+
+        <ProductDetailTag
+          name={product.name}
+          price={`${price} ${product.price?.currencyCode}`}
+          fontSize={32}
+        />
       </div>
     </div>
   )

@@ -25,6 +25,7 @@ const getSortVariables = (sort?: string, isCategory: boolean = false) => {
         reverse: true,
       }
       break
+    
   }
   return output
 }

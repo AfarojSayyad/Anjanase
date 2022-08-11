@@ -40,7 +40,7 @@ yarn dev
 - Standardized Data Hooks
 - Integrations - Integrate seamlessly with the most common ecommerce platforms.
 - Dark Mode Support
-
+config.json
 ## Integrations
 
 Next.js Commerce integrates out-of-the-box with BigCommerce, Shopify, Swell, Saleor, Vendure, Spree and Commerce.js. We plan to support all major ecommerce backends.

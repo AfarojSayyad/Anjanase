@@ -57,6 +57,9 @@ const images = [
   // 'https://cdn.mos.cms.futurecdn.net/3WcZUWAMGTpTqjkZhjof64.jpg',
   // '	https://cdn.shopify.com/s/files/1/0636/4427/0827/files/Group_98_1024x.png?v=1654685938',
 ]
+const banner_image = [
+  'https://cdn.shopify.com/s/files/1/0636/4427/0827/files/Anjanase-logo_2a5c0236-d0e8-4ee1-be32-c7a82818c675_160x.png?v=1657713372',
+]
 
 export async function getStaticProps({
   preview,
@@ -95,6 +98,7 @@ export default function Home({
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log({ categories, products })
+  console.log(categories.slice(0, 1))
 
   SwiperCore.use([Autoplay, EffectFade])
 
@@ -346,7 +350,20 @@ export default function Home({
                             </div>
                           </div>
                         ))} */}
-                        {images.slice(0, 1).map((image, index) => (
+                        {/* <div className="row px-5">
+                          {categories.map((product: any, i: number) => (
+                            <div
+                              key={product.id}
+                              className="col-12 col-md-4 collection-item "
+                            >
+                              <div className="align-items-center font-color-black flex-column cursor-pointer mb-5">
+                                {product.image}
+                              </div>
+                            </div>
+                          ))}
+                        </div> */}
+                        {/* previous image code */}
+                        {/* {images.slice(0, 1).map((image, index) => (
                           <div key={image}>
                             <div
                               className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5"
@@ -356,14 +373,51 @@ export default function Home({
                             ></div>
                             <div
                             // className="border-solid border-2 border-indigo-800  box-border h-38 w-32 p-4 border-4 rounded-md"
+                            // key={id}
                             >
                               <p className="mb-2  tracking-widest text-uppercase text-center">
                                 {product.name}
                               </p>
                             </div>
                           </div>
-                        ))}
-
+                        ))} */}
+                        {/* CATEGORY IMAGE */}
+                        {/* {categories.map((product, index) => */}
+                        {/* product?.image ? ( */}
+                        <div key={product.id}>
+                          {console.log('abs', product?.image)}
+                          <div
+                            className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5"
+                            // style={{
+                            //   backgroundImage: `url("${product.image}")`,
+                            // }}
+                          >
+                            {/* {product.image} */}
+                            <Banner
+                              key={product.id}
+                              product={{
+                                ...product,
+                                images: [{ url: product?.image?.originalSrc }],
+                              }}
+                              imgProps={{
+                                width: i === 0 ? 1080 : 540,
+                                height: i === 0 ? 1080 : 540,
+                                priority: true,
+                              }}
+                            />
+                          </div>
+                          {/* <div>
+                              <p className="mb-2  tracking-widest text-uppercase text-center">
+                                {product.name}
+                              </p>
+                            </div> */}
+                        </div>
+                        {/*) )} */}
+                        {/* <div>
+                          <p className="mb-2  tracking-widest text-uppercase text-center">
+                            {product.name}
+                          </p>
+                        </div> */}
                         {/* original below */}
                         {product.meta?.image && (
                           <div
@@ -388,6 +442,83 @@ export default function Home({
             </div>
           </div>
         </div>
+        <div className="bg-brand300 py-5 collection-banner">
+          <div className="custom-container py-5">
+            <p className="text-4xl font-sans font-bold my-3 py-5 text-center">
+              Categories
+            </p>
+            <div className="row">
+              {categories.map((product: any, i: number) =>
+                product?.image ? (
+                  <div
+                    key={product.id}
+                    className="col-12 col-md-4 collection-item mb-5"
+                  >
+                    <Link href={`/search/${product.slug}`} key={product.id}>
+                      <a className="align-items-center font-color-black flex-column cursor-pointer mb-5">
+                        <div>
+                          {/* CATEGORY IMAGE */}
+                          {/* {categories.map((product, index) => */}
+                          {/* {product?.image ? ( */}
+                          <div key={product.id}>
+                            {console.log('abs', product?.image)}
+                            <div
+                              className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5"
+                              style={{
+                                backgroundImage: `url("${product.image}")`,
+                              }}
+                            >
+                              {/* {product.image} */}
+                              <Banner
+                                key={product.id}
+                                product={{
+                                  ...product,
+                                  images: [
+                                    { url: product?.image?.originalSrc },
+                                  ],
+                                }}
+                              />
+                            </div>
+                          </div>
+                          {/* ) : null} */}
+                          {/*  )} */}
+                          {/* original below */}
+                          {product.meta?.image && (
+                            <div
+                              className="mb-4 w-100 collection-item-image"
+                              style={{
+                                background: `url("${product.meta.image}") center center/cover`,
+                              }}
+                            />
+                          )}
+                          {/* <div
+                        // className="border-solid border-2 border-indigo-800  box-border h-38 w-32 p-4 border-4 rounded-md"
+                        >
+                          <p className="mb-2  tracking-widest text-uppercase text-center">
+                            {product.name}
+                          </p>
+                        </div> */}
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                ) : null
+              )}
+            </div>
+          </div>
+        </div>
+        {/* {categories.map((product: any, i: number) => (
+          <div key={product.id} product={product}>
+            {product.image}
+          </div>
+          // <Image key={product.id}
+          // src={product.originalSrc}
+
+          // >
+          //   {product.image}
+
+          // </Image>
+        ))} */}
         <div className="bg-brand300  collection-banner">
           <div className="custom-container ">
             <div className="d-flex justify-content-between">

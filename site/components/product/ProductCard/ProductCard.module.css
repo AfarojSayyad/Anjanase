@@ -44,6 +44,7 @@
 .header {
   @apply transition-colors ease-in-out duration-500
   absolute bottom-0  z-20  pt-36 pr-16;
+  /* font-size: 2rem; */
 }
 
 .header .name {

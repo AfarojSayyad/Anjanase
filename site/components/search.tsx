@@ -19,6 +19,8 @@ const SORT = {
   'latest-desc': 'Latest arrivals',
   'price-asc': 'Price: Low to high',
   'price-desc': 'Price: High to low',
+  'product-fabric': 'Fabric',
+  'product-color': 'Colors',
 }
 
 import {
@@ -39,6 +41,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
   // in the same way of products, it's better to ignore the search input if one
   // of those is selected
   const query = filterQuery({ sort })
+  console.log('filters', query)
 
   const { pathname, category, brand } = useSearchMeta(asPath)
   const activeCategory = categories.find((cat: any) => cat.slug === category)
@@ -326,6 +329,10 @@ export default function Search({ categories, brands }: SearchPropsType) {
                   }}
                 />
               ))}
+
+              {/* <div>
+                <h1>Hello {}</h1>
+              </div> */}
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

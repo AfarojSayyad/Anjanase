@@ -10,6 +10,7 @@ import { Container, Text } from '@components/ui'
 import { SEO } from '@components/common'
 import ProductSidebar from '../ProductSidebar'
 import ProductTag from '../ProductTag'
+import ProductDetailTag from '../ProductDetailTag '
 interface ProductViewProps {
   product: Product
   relatedProducts: Product[]
@@ -27,11 +28,12 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
       <Container className="max-w-none w-full" clean>
         <div className={cn(s.root, 'fit')}>
           <div className={cn(s.main, 'fit')}>
-            <ProductTag
+            {/* <ProductTag
               name={product.name}
               price={`${price} ${product.price?.currencyCode}`}
               fontSize={32}
-            />
+            /> */}
+
             <div className={s.sliderContainer}>
               <ProductSlider key={product.id}>
                 {product.images.map((image, i) => (
@@ -40,7 +42,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
                       className={s.img}
                       src={image.url!}
                       alt={image.alt || 'Product Image'}
-                      width={600}
+                      width={400}
                       height={600}
                       priority={i === 0}
                       quality="85"
@@ -81,7 +83,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
                   className="animated fadeIn"
                   imgProps={{
                     width: 300,
-                    height: 300,
+                    height: 400,
                   }}
                 />
               </div>

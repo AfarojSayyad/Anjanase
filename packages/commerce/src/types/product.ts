@@ -34,6 +34,9 @@ export type ProductVariant = {
 export type Product = {
   id: string
   name: string
+  title: string
+  tags: string[]
+  // seo: string
   description: string
   descriptionHtml?: string
   sku?: string

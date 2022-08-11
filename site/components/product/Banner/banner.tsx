@@ -26,11 +26,11 @@ const ProductCard: FC<Props> = ({
   noNameTag = false,
   variant = 'default',
 }) => {
-  const { price } = usePrice({
-    amount: product.price.value,
-    baseAmount: product.price.retailPrice,
-    currencyCode: product.price.currencyCode!,
-  })
+  // const { price } = usePrice({
+  //   amount: product.price.value,
+  //   baseAmount: product.price.retailPrice,
+  //   currencyCode: product.price.currencyCode!,
+  // })
 
   const rootClassName = cn(
     s.root,
@@ -40,161 +40,159 @@ const ProductCard: FC<Props> = ({
 
   return (
     <div>
-      {/* // <Link href={`/product/${product.slug}`}> */}
-      <a className={rootClassName} aria-label={product.name}>
-        {/* {variant === 'slim' && (
-          <>
-            <div className={s.header}>
-              <span>{product.name}</span>
-            </div>
-            {product?.images && (
-              <div>
-                
-                <Image
-                  quality="85"
-                  src={product.images[0]?.url || placeholderImg}
-                  alt={product.name || 'Product Image'}
-                  height={300}
-                  width={300}
-                  layout="fixed"
-                  {...imgProps}
-                />
-              </div>
-            )}
-          </>
-        )} */}
-
-        {/* {variant === 'simple' && (
-          <>
-            {process.env.COMMERCE_WISHLIST_ENABLED && (
-              <WishlistButton
-                className={s.wishlistButton}
-                productId={product.id}
-                variant={product.variants[0]}
-              />
-            )}
-            {!noNameTag && (
+      <Link href={`/search/${product.slug}`}>
+        <a className={rootClassName} aria-label={product.name}>
+          {variant === 'slim' && (
+            <>
               <div className={s.header}>
-                <h3 className={s.name}>
-                  <span>{product.name}</span>
-                </h3>
-                <div className={s.price}>
-                  {`${price} ${product.price?.currencyCode}`}
-                </div>
+                <span>{product.name}</span>
               </div>
-            )}
-            <div className={s.imageContainer}>
               {product?.images && (
                 <div>
-                  <Image
-                    alt={product.name || 'Product Image'}
-                    className={s.productImage}
-                    src={product.images[0]?.url || placeholderImg}
-                    height={40}
-                    width={40}
+                  {/* <Image
                     quality="85"
-                    layout="responsive"
+                    src={product.images[0]?.url || placeholderImg}
+                    alt={product.name || 'Product Image'}
+                    height={300}
+                    width={300}
+                    layout="fixed"
                     {...imgProps}
-                  />
+                  /> */}
                 </div>
               )}
-            </div>
-          </>
-        )} */}
+            </>
+          )}
 
-        {/* {variant === 'default' && (
-          <>
-            {process.env.COMMERCE_WISHLIST_ENABLED && (
-              <WishlistButton
-                className={s.wishlistButton}
-                productId={product.id}
-                variant={product.variants[0] as any}
-              />
-            )}
-            <ProductTag
-              name={product.name}
-              price={`${price} ${product.price?.currencyCode}`}
-            />
-            <div className={s.imageContainer}>
-              {product?.images && (
-                <div> */}
-        {/* categories */}
-        {/* <Image
-                    alt={product.name || 'Product Image'}
-                    className={s.productImage}
-                    src={product.images[0]?.url || placeholderImg}
-                    height={400}
-                    width={400}
-                    quality="85"
-                    layout="responsive"
-                    {...imgProps}
-                  />
-                  <div className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5">
-                    <p className="font-size-display5 font-family-secondary mb-4 text-center hero-header">
-                      The care you&apos;ve always needed
-                    </p>
-                    <p className="text-transform-uppercase font-size-title mb-5 hero-subheader">
-                      A range of products for you
-                    </p>
+          {variant === 'simple' && (
+            <>
+              {process.env.COMMERCE_WISHLIST_ENABLED && (
+                <WishlistButton
+                  className={s.wishlistButton}
+                  productId={product.id}
+                  variant={product.variants[0]}
+                />
+              )}
+              {!noNameTag && (
+                <div className={s.header}>
+                  <h3 className={s.name}>
+                    <span>{product.name}</span>
+                  </h3>
+                  <div className={s.price}>
+                    {/* {`${price} ${product.price?.currencyCode}`} */}
                   </div>
                 </div>
               )}
-            </div> */}
-        {/* <ProductTag
-              name={product.name}
-              price={`${price} ${product.price?.currencyCode}`}
-            /> */}
-        {/* </>
-        )} */}
-
-        {/*  */}
-        {variant === 'default' && (
-          <>
-            {process.env.COMMERCE_WISHLIST_ENABLED && (
-              <WishlistButton
-                className={s.wishlistButton}
-                productId={product.id}
-                variant={product.variants[0] as any}
-              />
-            )}
-            {/* <ProductTag
-              name={product.name}
-              price={`${price} ${product.price?.currencyCode}`}
-            /> */}
-            <div className={s.imageContainer}>
-              {product?.images && (
-                <div>
-                  {/* categories */}
-                  <Image
-                    alt={product.name || 'Product Image'}
-                    className={s.productImage}
-                    src={product.images[0]?.url || placeholderImg}
-                    height={60}
-                    width={40}
-                    quality="85"
-                    layout="responsive"
-                    {...imgProps}
-                  />
-                  <div className={s.imageContainer}>
-                    <p className={s.header}>
-                      The care you&apos;ve always needed
-                    </p>
-                    <p className={s.header2}>PRESENTING</p>
+              <div className={s.imageContainer}>
+                {product?.images && (
+                  <div>
+                    <Image
+                      alt={product.name || 'Product Image'}
+                      className={s.productImage}
+                      src={product.images[0]?.url || placeholderImg}
+                      height={40}
+                      width={40}
+                      quality="85"
+                      layout="responsive"
+                      {...imgProps}
+                    />
                   </div>
-                  <button className={s.wishlistButton}>
-                    <Link href={`/product/${product.slug}`}>Shop Now</Link>
-                  </button>
-                </div>
+                )}
+              </div>
+            </>
+          )}
+
+          {variant === 'default' && (
+            <>
+              {process.env.COMMERCE_WISHLIST_ENABLED && (
+                <WishlistButton
+                  className={s.wishlistButton}
+                  productId={product.id}
+                  variant={product.variants[0] as any}
+                />
               )}
-            </div>
-            {/* <ProductTag
+              {/* <ProductTag
               name={product.name}
               price={`${price} ${product.price?.currencyCode}`}
             /> */}
-          </>
-        )}
-      </a>
-      {/* </Link> */}
+              <div className={s.imageContainer}>
+                {product?.images && (
+                  <div>
+                    {/* categories */}
+                    <Image
+                      alt={product.name || 'Product Image'}
+                      className={s.productImage}
+                      src={product.images[0]?.url || placeholderImg}
+                      height={400}
+                      width={400}
+                      quality="85"
+                      layout="responsive"
+                      {...imgProps}
+                    />
+                    <div className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white p-40 pt-0">
+                      {/* <p className="font-size-display5 font-family-secondary mb-4 text-center hero-header">
+                        The care you&apos;ve always needed
+                      </p> */}
+                      <p className={s.header}>
+                        {/* A range of products for you */}
+                        {product.name}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* <ProductTag
+              name={product.name}
+              price={`${price} ${product.price?.currencyCode}`}
+            /> */}
+            </>
+          )}
+
+          {/*  */}
+          {variant === 'default' && (
+            <>
+              {process.env.COMMERCE_WISHLIST_ENABLED && (
+                <WishlistButton
+                  className={s.wishlistButton}
+                  productId={product.id}
+                  variant={product.variants[0] as any}
+                />
+              )}
+              {/* <ProductTag
+              name={product.name}
+              price={`${price} ${product.price?.currencyCode}`}
+            /> */}
+              <div className={s.imageContainer}>
+                {product?.images && (
+                  <div>
+                    {/* categories */}
+                    {/* <Image
+                      alt={product.name || 'Product Image'}
+                      className={s.productImage}
+                      src={product.images[0]?.url || placeholderImg}
+                      height={60}
+                      width={40}
+                      quality="85"
+                      layout="responsive"
+                      {...imgProps}
+                    /> */}
+                    {/* <div className={s.imageContainer}>
+                      <p className={s.header}>{product.name}</p>
+                      <p className={s.header2}>PRESENTING</p>
+                    </div> */}
+                    <button className={s.wishlistButton}>
+                      <Link href={`/search/${product.slug}`}>Shop</Link>
+                    </button>
+                  </div>
+                )}
+              </div>
+              {/* <ProductTag
+              name={product.name}
+              price={`${price} ${product.price?.currencyCode}`}
+            /> */}
+            </>
+          )}
+        </a>
+      </Link>
     </div>
   )
 }
