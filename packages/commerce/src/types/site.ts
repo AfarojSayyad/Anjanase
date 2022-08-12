@@ -6,6 +6,8 @@ export type Category = {
   slug: string
   path: string
   image: Image
+  node: any
+  // products: any
 }
 
 export type Brand = any

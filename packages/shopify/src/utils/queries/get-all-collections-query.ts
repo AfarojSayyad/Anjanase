@@ -10,6 +10,18 @@ const getSiteCollectionsQuery = /* GraphQL */ `
             id
             originalSrc
           }
+          products(first: 1) {
+            edges {
+              node {
+                id
+              }
+            }
+          }
+          # products(first: 1) {
+          #   node {
+          #     id
+          #   }
+          # }
         }
       }
     }

@@ -305,29 +305,12 @@ export default function Home({
           </Link> */}
           </div>
         </div>
-        <div className="bg-brand300 py-5 collection-banner">
+        {/* Before categories code   */}
+        {/* <div className="bg-brand300 py-5 collection-banner">
           <div className="custom-container py-5">
             <p className="text-4xl font-sans font-bold my-3 py-5 text-center">
               Categories
             </p>
-            {/* <div className="row px-5">
-              {categories.slice(3).map((product: any, i: number) => (
-                <div
-                  // key={`category-item-${index}`}
-                  className="col-12 col-md-4 collection-item "
-                >
-                  <div className="align-items-center font-color-black flex-column cursor-pointer mb-5">
-                    <ProductCard
-                      key={product.id}
-                      product={product}
-                      // variant="slim"
-                      className="mb-4 w-100 collection-item-image"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div> */}
-
             <div className="row">
               {categories.slice(0, 3).map((product: any, i: number) => (
                 <div
@@ -337,62 +320,11 @@ export default function Home({
                   <Link href={`/search/${product.slug}`} key={product.id}>
                     <a className="align-items-center font-color-black flex-column cursor-pointer mb-5">
                       <div>
-                        {/* {product.map((product: any, i: number) => (
-                          <div
-                            className="col-12 col-md-4 collection-item "
-                          >
-                            <div className="align-items-center font-color-black flex-column cursor-pointer mb-5">
-                              <ProductCard
-                                key={product.id}
-                                product={product}
-                                className="mb-4 w-100 collection-item-image"
-                              />
-                            </div>
-                          </div>
-                        ))} */}
-                        {/* <div className="row px-5">
-                          {categories.map((product: any, i: number) => (
-                            <div
-                              key={product.id}
-                              className="col-12 col-md-4 collection-item "
-                            >
-                              <div className="align-items-center font-color-black flex-column cursor-pointer mb-5">
-                                {product.image}
-                              </div>
-                            </div>
-                          ))}
-                        </div> */}
-                        {/* previous image code */}
-                        {/* {images.slice(0, 1).map((image, index) => (
-                          <div key={image}>
-                            <div
-                              className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5"
-                              style={{
-                                backgroundImage: `url("${image}")`,
-                              }}
-                            ></div>
-                            <div
-                            // className="border-solid border-2 border-indigo-800  box-border h-38 w-32 p-4 border-4 rounded-md"
-                            // key={id}
-                            >
-                              <p className="mb-2  tracking-widest text-uppercase text-center">
-                                {product.name}
-                              </p>
-                            </div>
-                          </div>
-                        ))} */}
-                        {/* CATEGORY IMAGE */}
-                        {/* {categories.map((product, index) => */}
-                        {/* product?.image ? ( */}
                         <div key={product.id}>
                           {console.log('abs', product?.image)}
                           <div
                             className="hero-slide d-flex align-items-center justify-content-center flex-column font-color-white py-5"
-                            // style={{
-                            //   backgroundImage: `url("${product.image}")`,
-                            // }}
                           >
-                            {/* {product.image} */}
                             <Banner
                               key={product.id}
                               product={{
@@ -406,19 +338,7 @@ export default function Home({
                               }}
                             />
                           </div>
-                          {/* <div>
-                              <p className="mb-2  tracking-widest text-uppercase text-center">
-                                {product.name}
-                              </p>
-                            </div> */}
                         </div>
-                        {/*) )} */}
-                        {/* <div>
-                          <p className="mb-2  tracking-widest text-uppercase text-center">
-                            {product.name}
-                          </p>
-                        </div> */}
-                        {/* original below */}
                         {product.meta?.image && (
                           <div
                             className="mb-4 w-100 collection-item-image"
@@ -427,13 +347,6 @@ export default function Home({
                             }}
                           />
                         )}
-                        {/* <div
-                        // className="border-solid border-2 border-indigo-800  box-border h-38 w-32 p-4 border-4 rounded-md"
-                        >
-                          <p className="mb-2  tracking-widest text-uppercase text-center">
-                            {product.name}
-                          </p>
-                        </div> */}
                       </div>
                     </a>
                   </Link>
@@ -441,7 +354,7 @@ export default function Home({
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="bg-brand300 py-5 collection-banner">
           <div className="custom-container py-5">
             <p className="text-4xl font-sans font-bold my-3 py-5 text-center">
@@ -610,7 +523,7 @@ export default function Home({
             </div>
           </div>
         </div>
-        <Grid variant="filled">
+        {/* <Grid variant="filled">
           {products.slice(0, 3).map((product: any, i: number) => (
             <ProductCard
               key={product.id}
@@ -649,7 +562,7 @@ export default function Home({
           {products.slice(3).map((product: any, i: number) => (
             <ProductCard key={product.id} product={product} variant="slim" />
           ))}
-        </Marquee>
+        </Marquee> */}
         {/* <HomeAllProductsGrid
         newestProducts={products}
         categories={categories}

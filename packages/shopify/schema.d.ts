@@ -4104,6 +4104,8 @@ export type ProductConnection = {
   edges: Array<ProductEdge>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
+
+  node: Node
 }
 
 /** An auto-generated type which holds one Product and a cursor during pagination. */

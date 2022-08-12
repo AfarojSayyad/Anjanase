@@ -39,7 +39,8 @@ const ProductCard: FC<Props> = ({
   )
 
   return (
-    <Link href={`/product/${product.slug}`}>
+    // <Link href={`/product/${product.slug}`}>
+    <Link href={'https://www.instagram.com/anjanase_official/'}>
       <a className={rootClassName} aria-label={product.name}>
         {variant === 'slim' && (
           <>

@@ -19,8 +19,8 @@ const SORT = {
   'latest-desc': 'Latest arrivals',
   'price-asc': 'Price: Low to high',
   'price-desc': 'Price: High to low',
-  'product-fabric': 'Fabric',
-  'product-color': 'Colors',
+  // 'product-fabric': 'Fabric',
+  // 'product-color': 'Colors',
 }
 
 import {
@@ -135,7 +135,11 @@ export default function Search({ categories, brands }: SearchPropsType) {
                         </a>
                       </Link>
                     </li>
-                    {categories.map((cat: any) => (
+                    {categories.map((cat: any, data: any) => (
+                      // cat?.image ? (
+                      // cat?.name?.length >0()
+                      // console.log({cat.name.length});
+                      // cat?.images ? (
                       <li
                         key={cat.path}
                         className={cn(
@@ -145,7 +149,42 @@ export default function Search({ categories, brands }: SearchPropsType) {
                           }
                         )}
                       >
-                        <Link
+                        {/* <div>{data.products.length}</div> */}
+                        {/* {data ? (
+                            <>
+                              <span
+                                className={cn('animated', {
+                                  fadeIn: data.found,
+                                  hidden: !data.found,
+                                })}
+                              >
+                                Showing {data.products.length} results{' '}
+                                {q && (
+                                  <>
+                                    for "<strong>{q}</strong>"
+                                  </>
+                                )}
+                              </span>{' '}
+                            </>
+                          ) : null} */}
+                        {cat?.products?.node !== [] ? (
+                          <Link
+                            href={{
+                              pathname: getCategoryPath(cat.path, brand),
+                              query,
+                            }}
+                          >
+                            <a
+                              onClick={(e) => handleClick(e, 'categories')}
+                              className={
+                                'block lg:inline-block px-4 py-2 lg:p-0 lg:my-2 lg:mx-4'
+                              }
+                            >
+                              {cat.name}
+                            </a>
+                          </Link>
+                        ) : null}
+                        {/* <Link
                           href={{
                             pathname: getCategoryPath(cat.path, brand),
                             query,
@@ -159,8 +198,9 @@ export default function Search({ categories, brands }: SearchPropsType) {
                           >
                             {cat.name}
                           </a>
-                        </Link>
+                        </Link> */}
                       </li>
+                      // ) :null
                     ))}
                   </ul>
                 </div>

@@ -17,6 +17,7 @@ import {
   Collection,
 } from '../../schema'
 import { colorMap } from './colors'
+import products from 'api/endpoints/catalog/products'
 
 const money = ({ amount, currencyCode }: MoneyV2) => {
   return {
@@ -194,10 +195,17 @@ export const normalizeCategory = ({
   handle,
   id,
   image,
-}: Collection): Category => ({
+  products: node,
+}: // node,
+// products,
+Collection): Category => ({
   id,
   name,
   slug: handle,
   path: `/${handle}`,
   image,
+  // products: edges?.node || null,
+  // edges: edges?.pageInfo?. || [],
+  node: node || [],
+  // products,
 })
