@@ -11,7 +11,7 @@
 }
 
 .root .name span {
-  @apply py-4 px-6 bg-primary text-primary font-bold;
+  @apply py-4 px-4 bg-primary text-primary;
   min-height: 70px;
   font-size: inherit;
   letter-spacing: inherit;

@@ -4105,7 +4105,7 @@ export type ProductConnection = {
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 
-  node: Node
+  // node: Node
 }
 
 /** An auto-generated type which holds one Product and a cursor during pagination. */

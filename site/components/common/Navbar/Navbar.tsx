@@ -5,17 +5,22 @@ import NavbarRoot from './NavbarRoot'
 import { Logo, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
 import Image from 'next/image'
+import { WishlistButton } from '@components/wishlist'
+import Wishlist from 'pages/wishlist'
+import type { Product } from '@commerce/types/product'
 
 interface Link {
   href: string
   label: string
+  product: Product
 }
 
 interface NavbarProps {
   links?: Link[]
+  product: Product
 }
 
-const Navbar: FC<NavbarProps> = ({ links }) => (
+const Navbar: FC<NavbarProps> = ({ links, product }) => (
   <NavbarRoot>
     {/* <div className="justify-center items-center pl-24 pt-3">
       <Link href="/">
@@ -27,9 +32,9 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
         />
       </Link>
     </div> */}
-    <Container clean className="mx-auto max-w-8xl px-20">
+    <Container clean className="mx-auto max-w-8xl px-56">
       <div className={s.nav}>
-        <div className="flex items-center flex-1">
+        <div className="flex items-center flex-1 ">
           <Link href="/">
             {/* <a className={s.logo} aria-label="Logo"> */}
             {/* <Logo /> */}
@@ -42,7 +47,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
             />
             {/* </a> */}
           </Link>
-          <nav className={s.navMenu}>
+          {/* <nav className={s.navMenu}>
             <Link href="/search">
               <a className={s.link}>All</a>
             </Link>
@@ -51,7 +56,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
                 <a className={s.link}>{l.label}</a>
               </Link>
             ))}
-          </nav>
+          </nav> */}
         </div>
         {process.env.COMMERCE_SEARCH_ENABLED && (
           <div className="justify-center flex-1 hidden lg:flex">
@@ -68,6 +73,18 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
         </div>
       )}
     </Container>
+    <div className="mx-auto max-w-8xl px-40">
+      <nav className={s.navMenu}>
+        <Link href="/search">
+          <a className={s.link}>All</a>
+        </Link>
+        {links?.map((l) => (
+          <Link href={l.href} key={l.href}>
+            <a className={s.link}>{l.label}</a>
+          </Link>
+        ))}
+      </nav>
+    </div>
   </NavbarRoot>
 )
 

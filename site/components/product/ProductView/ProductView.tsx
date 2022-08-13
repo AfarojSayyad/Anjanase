@@ -51,7 +51,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
                 ))}
               </ProductSlider>
             </div>
-            {process.env.COMMERCE_WISHLIST_ENABLED && (
+            {process.env.COMMERCE_WISHLIST_ENABLED || (
               <WishlistButton
                 className={s.wishlistButton}
                 productId={product.id}
@@ -66,6 +66,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
             className={s.sidebar}
           />
         </div>
+
         <hr className="mt-7 border-accent-2" />
         <section className="py-12 px-6 mb-10">
           <Text variant="sectionHeading">Related Products</Text>
